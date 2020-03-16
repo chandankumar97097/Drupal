@@ -1,0 +1,18 @@
+🎗️ Drupal Multisite Setup🎗️ 
+--------------------------------------------------------------------------------------------    
+Hi we are creating drupal 8 multisite in our local machine.
+👉️Initial steps to follow..
+📌️Under /sites replicate the example.site.php and rename to sites.php
+📌️Create an array in php named $sites.
+<?php  $sites=array('webshop.local.site1' =>'site1', 'webshop.local.site2'=>'site2' ); ?>
+📌️Now create the directories[site1 & site2] under /sites with the same name as in array values.
+📌️Now we have to create settings and services file in both the directories.To do that replicate default.services.yml and default.settings.php from the /default to both the directories and rename them to remove 'default.' from respective names.
+📌️Create the virtual host for those two subdomain [webshop.local.site1] & webshop.local.site2] with the same as array keys.
+📌️Now visit two url http://webshop.local.site1 & https://webshop.local.site2
+📌️Create Bothe Database and hit the url and install.
+
+👉️Note: how to create virtual host:- https://gist.github.com/dasbairagya/2005abe5ba14e2d26a1a712a19f38ecd
+  Clone webshop from here:- https://github.com/dasbairagya/webshop.git
+  After cloning run composer install command.
+[Tuesday 3:30 PM] Dasbairagya, Gopal]
+

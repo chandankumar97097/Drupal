@@ -1,0 +1,38 @@
+Install Drupal Using Composer:
+composer create-project drupal-composer/drupal-project:8.x-dev template --no-interaction 
+
+Install Modules Using Composer:
+composer require drupal/ModuleName
+
+Create Host in Local Machine:
+sudo nano /etc/apache2/sites-available/platform.conf
+ 2. sudo a2ensite platform
+ 3.  sudo nano /etc/hosts
+ 4.  sudo service apache2 restart
+ 5.  ../vendor/bin/drush cr
+ 6.  ../vendor/bin/console
+ 7.  ../vendor/bin/drupal cr
+
+Go to under web directory and follow this steps to clear cashe
+Clear Cashe using Drupal:
+../vendor/bin/drupal cr
+
+Clear Cashe using Drush:
+../vendor/bin/drush cr
+
+Transfer Files local to server using CSP Command:
+scp -r Folder_name ssh user@root.platform.sh:/app/web/sites/hu/files/
+
+Dump Database:
+mysqldump -u root -p DBName > DBName.sql
+create database DBName;
+show databases;
+use DBName;
+source ~/sql/SQL.sql;
+
+Delete Database:
+drop database DBName;
+
+
+1. git log --oneline -n 4
+2. git reset HEAD~1

@@ -1,0 +1,39 @@
+Comparison between Multi-site and Single-site
+
+Requirements
+1.	The website should be a multilingual and multi-country where each country would have specific set of languages.
+2.	The contents are specific to each site and are not shared among each other.
+3.	Every site follows the same theme, i.e. the same design.
+4.	Each user/content-admin belong to one country and can edit or delete only content specific to that country.
+5.	Each country will have 2-3 defined set of languages and only those mentioned languages should be available for content translation.
+
+Site layout
+ 
+Difference between multi and single site approach
+We can consider any of the three approaches:
+	Multi-site with multiple databases 
+	Multi-site with single databases 
+	Single-site with single database (can be customized to work as multi-site)
+In general, Multi-site with multiple databases and Multi-site with single databases have almost same type of approach but all the extra tables will be created in same database and that will make the database heavy.
+ 
+
+	Site With Drupal 8	Site on Pantheon web hosting
+Multisite with Multi Database
+	We can use Drupal out of the box multisite approach. It will have multiple Database for Multiple sites. Hence, load will be less on a single database.	Not Supported
+Multisite with Single Database
+	We can use Drupal out of the box multisite approach. It will have Single Database for Multiple sites. On rolling up each new country, Drupal will create 50+ tables. Hence, load will be higher on a single database.	Not Supported
+Single site with Single Database
+	Not preferred for IMC use case.	Pantheon definitely supports, but we need to do lot of manual configuration to achieve IMC use cases. Therefore, it will have huge dev efforts involved.
+However, Pantheon do not recommend such architecture post analyzing IMC use case.
+
+
+Multi-site vs Single-site
+Multisite with Multi Database	Single site with Single Database
+Content Management – In case of multi-site, content management specific to each user will be easier. The user can login to respective country site and make the content changes as per requirement.	Content Management – Content management will be a challenge as the content will be rendered as per a specific country.
+Solution - Have a country category field for each country in each page. Select that country value while adding that page to the site. Based on a category, users will be allowed to access contents. But for that, a lot of coding  effort will be there as we will have to write code to define access settings, url settings, url aliases, etc. 
+Language Definition and detection - In case of multi-site we can easily define languages for that particular country and store the content translations in the database. As an example, need two languages for France - i.e. French and English, we will only load these two language and render the pages as per chosen language.	Language Definition and detection – If we use single-site approach, we will have to do the mapping of language to every country and ensure every content is having only those language translations, which are allowed for that country. Therefore, if it is for France, it must have only two language available and other translations should not be allowed. For this, additional coding effort will be required.  
+URL Redirect - In case of multi-site, Drupal will detect the current location of user and redirect it to the specific site.	URL Redirect - In single-site approach detect the current location and write some code to redirect user to the specific country URL. User redirection will need the country field value and check based on that value. For this, additional coding effort will be required.
+Site URL pattern -  For multisite, URL: domain/country-name/language/page-title	Site URL pattern - In single-site approach will have URL: domain/language/country-name/page-title, as we are using country as category. By default, Drupal has language captured in base-url and remaining part is added after that.
+Header and Footer Menu - In case of multi-site, every country site will have their own menu links, which will be shown by Drupal at one place for all set of pages.	Header and Footer Menu – For single-site, we need to map every menu block to a specific country so that every country loads their own set of header and footer menu. This will need some additional coding effort.
+Configuration Management – Multisite will be useful if we have to create once and then we can easily export all configurations from one site and then import to other sites. We can wrap all configurations in one folder and use it every time we create a new site for any country.  	Configuration Management – In single-site, all configurations such as url settings, user permissions, etc. are dependent on categories and require custom code to implement. It will not be possible to wrap in single folder and use for every country site. This will need some additional coding effort.
+
