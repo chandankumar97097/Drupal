@@ -1,17 +1,42 @@
-Install Drupal Using Composer:
-composer create-project drupal-composer/drupal-project:8.x-dev template --no-interaction 
+-------------------------------------------------------------------------------------------------------------------
 
-Install Modules Using Composer:
-composer require drupal/ModuleName
+📌️ Install Drupal Using Composer:
+   composer create-project drupal-composer/drupal-project:8.x-dev template --no-interaction 
+   
+-------------------------------------------------------------------------------------------------------------------
 
-Create Host in Local Machine:
-sudo nano /etc/apache2/sites-available/platform.conf
- 2. sudo a2ensite platform
- 3.  sudo nano /etc/hosts
- 4.  sudo service apache2 restart
- 5.  ../vendor/bin/drush cr
- 6.  ../vendor/bin/console
- 7.  ../vendor/bin/drupal cr
+📌️ Install Modules Using Composer:
+   composer require drupal/ModuleName
+   
+-------------------------------------------------------------------------------------------------------------------
+
+📌️ Virtual Host Setup (Create Virtual host in your local computer):
+   sudo nano /etc/apache2/sites-available/platform.conf
+
+Add the following virtual host code: 
+<VirtualHost *:80>
+    ServerAdmin me@myserver
+    DocumentRoot /var/www/html/google/web
+    ServerName google.local
+    ServerAlias *.google.local
+    CustomLog /var/log/apache2/ingram.error.log combined
+    <Directory /var/www/html/google/web>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                allow from all
+	</Directory>
+</VirtualHost>
+now set the DocumentRoot path of your drupal project and also set the ServerAlias what you want to set but remember one thing! at the end of the Alias you have to put ".local" let's suppose google is your Alias right! so for this alias you need to add like this "google.local"
+
+Now run the following commands one by one:
+sudo a2ensite platform
+sudo nano /etc/hosts
+add the bellow code:
+127.0.0.1    google.local
+sudo service apache2 restart
+Now Open this link in your browser:
+google.local
 
 Go to under web directory and follow this steps to clear cashe
 Clear Cashe using Drupal:
@@ -20,8 +45,12 @@ Clear Cashe using Drupal:
 Clear Cashe using Drush:
 ../vendor/bin/drush cr
 
+-------------------------------------------------------------------------------------------------------------------
+
 Transfer Files local to server using CSP Command:
 scp -r Folder_name ssh user@root.platform.sh:/app/web/sites/hu/files/
+
+-------------------------------------------------------------------------------------------------------------------
 
 Dump Database:
 mysqldump -u root -p DBName > DBName.sql
@@ -33,6 +62,10 @@ source ~/sql/SQL.sql;
 Delete Database:
 drop database DBName;
 
+-------------------------------------------------------------------------------------------------------------------
 
+Reset Git Branch:
 1. git log --oneline -n 4
 2. git reset HEAD~1
+
+-------------------------------------------------------------------------------------------------------------------
