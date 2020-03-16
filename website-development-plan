@@ -1,0 +1,86 @@
+
+Host: website.local
+
+-------------------------
+Installation:
+-------------------------
+1. Install Drupal using composer command.
+2. Create database named cloudblue.
+3. Host Creation in local system (Optional)
+
+-------------------------
+Theme Setup:
+-------------------------
+Setting up theme directory structure (ie: web/themes/custom/cloudblue) and pasting everything from the html template.
+Converting html template into drupal theme by (integrating liabraries, files and images).
+
+-------------------------
+Template Sections
+-------------------------
+A. Topbar
+B. Header Menu
+C. Slider
+D. About Us
+E. Counter
+F. Services
+G. Tab Options
+H. Testimonial (Case Studies)
+I. Industrial Solutions
+J. Worldwide Sheets
+K. Events (Follow the CloudBlue heartbeat)
+L. Industrial Solutions Tabs
+M. Catalog Banner
+N. News (Newsroom)
+O. Call to action (Accelerate Your Business)
+P. Footer Logo
+Q. Footer Menu
+R. Footer Social Media
+S. Copyrught
+T. Cookies
+U. Popup Form
+
+----------------------------------
+Sections developed by using Views:
+----------------------------------
+1. Slider
+2. Services
+3. Tab Options
+4. Testimonial
+5. Worldwide Sheets
+6. Events
+7. Industrial Solutions Tabs
+8. News
+
+---------------------------------------------------------------------
+Sections developed with the help of Paragraphs and Custom block type:
+---------------------------------------------------------------------
+1. About Us
+2. Counter
+3. Industrial Solutions
+4. Catalog Banner
+5. Call-to-action
+
+*Topbar, Footer logo, Social Icons, Copyright and Cookies fields are developed by using Theme Preprocess functions.
+
+-------------------------
+Mudules Used:
+-------------------------
+1. Pathauto (for set created content path or URL automatically)
+2. Context (for separate page contents what we want to show and which page or content type)
+3. Admin-toolbar (for admin toolbar dropdown on hover)
+4. Module-filter (for filtering modules easily)
+5. Paragraphs (for creating dynamic sections)
+6. Coffee (for shortcut navigation in admin panel)
+7. Svg-image (for upload svg type image)
+8. Date-range-formatter (for events date)
+9. Devel (for Shortcuts and generating dummy data)
+10. Linked-field (for edit machine name)
+11. Simple-login (for admin login panel)
+12. Webform (for Popup form)
+
+
+
+
+
+
+
